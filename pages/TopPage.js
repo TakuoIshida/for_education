@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
-export default function Home() {
+import React from 'react'
+
+const TopPage = () => {
   return (
     <div className="container">
       <Head>
@@ -15,18 +17,13 @@ export default function Home() {
           </Link>
         </div>
         <div>
-          <Link href="/env" className="card">
+          <Link href="/Env" className="card">
           <a>環境構築方法</a>
           </Link>
         </div>
         <div>
-          <Link href="/dev" className="card">
+          <Link href="/Dev" className="card">
           <a>Dev画面</a>
-          </Link>
-        </div>
-        <div>
-          <Link href="/readme" className="card">
-          <a>read me!</a>
           </Link>
         </div>
       </main>
@@ -34,3 +31,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default TopPage
