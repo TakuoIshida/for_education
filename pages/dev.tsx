@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, lighten, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +14,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
+import DevTable from './component/DevTable';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -113,7 +114,7 @@ const dev = () => {
       </Button>
       </div>
 <Divider className={classes.devider} />
-
+    <DevTable />
     </>
   );
 }
