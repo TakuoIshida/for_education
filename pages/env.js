@@ -10,7 +10,7 @@ export default function Home() {
 
       <main>
       <div className="grid">
-        <Link href="/TopPage" className="card">
+        <Link href="/toppage" className="card">
           <a>Back to Top</a>
         </Link>
       </div>
