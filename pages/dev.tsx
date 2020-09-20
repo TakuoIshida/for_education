@@ -15,6 +15,8 @@ import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import DevTable from './component/DevTable';
+import DevCard from './component/DevCard';
+import Alert from './component/DevAlert';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,11 +42,11 @@ const dev = () => {
   const classes = useStyles();
   return (
     <>
-        <Link href="https://material-ui.com/components/box/">
-          <a>Go to Material-UI</a>
-        </Link>
+      <Link href="https://material-ui.com/components/box/">
+        <a>Go to Material-UI</a>
+      </Link>
 
-        <Divider className={classes.devider} />
+      <Divider className={classes.devider} />
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -113,8 +115,12 @@ const dev = () => {
           Save
       </Button>
       </div>
-<Divider className={classes.devider} />
-    <DevTable />
+      <Divider className={classes.devider} />
+        <DevTable />
+      <Divider className={classes.devider} />
+        <DevCard />
+      <Divider className={classes.devider} />
+      <Alert />
     </>
   );
 }
