@@ -20,31 +20,6 @@ const TopPage = () => {
             <a>Dev</a>
           </Link>
       </Button>
-        <Button variant="contained">
-          <Link href="/component/signup">
-          <a>signup</a>
-          </Link>
-        </Button>
-        <Button variant="contained">
-          <Link href="/component/sinout">
-          <a>sinout</a>
-          </Link>
-        </Button>
-        <Button variant="contained">
-          <Link href="/component/login">
-          <a>login</a>
-          </Link>
-        </Button>
-        <Button variant="contained">
-          <Link href="/component/logout">
-          <a>logout</a>
-          </Link>
-        </Button>
-        <Button variant="contained">
-          <Link href="/component/mypage">
-          <a>mypage</a>
-          </Link>
-        </Button>
       </main>
 
     </div>
