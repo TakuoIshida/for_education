@@ -24,8 +24,8 @@ export default function ImgMediaCard() {
           component="img"
           alt="card1"
           height="140"
-          image="/../cards/card1.jpg"
-        //   image="/cards/card1.jpg"
+          // publicをrootとしてpathを書く
+          image="/static/card1.jpg"
           title="card1"
         />
         <CardContent>
