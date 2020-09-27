@@ -20,6 +20,11 @@ const TopPage = () => {
             <a>Dev</a>
           </Link>
       </Button>
+      <Button variant="contained">
+          <Link href="/component/mypage/hoge">
+            <a>MyPage</a>
+          </Link>
+      </Button>
       </main>
 
     </div>

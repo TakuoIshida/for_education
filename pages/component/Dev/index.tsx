@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { ComponentProps, FC, useState, useEffect, useReducer } from 'react'
+import React, { FC, useState, useReducer } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -92,43 +92,22 @@ const useStyles = makeStyles((theme: Theme) =>
 // getInitialPropsではなく、getStaticPropsを使おう
 // https://qiita.com/matamatanot/items/1735984f40540b8bdf91
 
+// fetch
 // contributerの数、コミット数、スターの数が圧倒的に少ない、
-// fetchはシリアライズしないといけないという欠点から、保守性に不安がある。。
-// 一旦axiosを使う→レンダリングに不便があれば、fetchを使うのはどうか？
+// 保守性に不安がある。。
 // https://gist.github.com/jsjoeio/0fd8563bc23ef852bc921836512992d9
 
 import axios from 'axios'
 import fetch from 'isomorphic-unfetch'
 
-// APIのURLが増えると冗長なので、定数マスタでurlを作成しておく、
-// TODO: 関数の抽象化: fetch(url, option)でAPIが叩ける状態にする。
-// URLは定数マスタから呼び出す。
-
-// const baseURL = http://localhost:8000/v1
-// import { fetch } from './.....';
-
 export async function getStaticProps() {
-  // gitHubからnext.jsのスター数をカウントするAPI
+  // gitHubからnext.jsの情報を取得するAPI
   const url = 'https://api.github.com/repos/zeit/next.js';
   const res = await fetch(url)
   const json = await res.json()
   const stars: number = json.stargazers_count
   const response = await axios.get(url)
   const { archived = true, description = "description"}: { archived: boolean, description: string} = response.data
-    // API → setState
-    // https://qiita.com/gcyagyu/items/4d186df2e90c53228951
-
-    // ↓をgetの第２引数に渡す
-    // {
-      //   headers: {
-        //     Authorization: "Bearer 8213f5cd-5fds2-4891-83d0-48d172ffab77"
-        //   }
-        // })
-        // .catch(error => {
-          // console.log('error')
-          // }
-          // .finally(
-            // )
 
   // propsで値が返される→props.starsで取得できる
   return {
@@ -199,13 +178,6 @@ const HooksCounter = () => {
   )
 }
 
-
-// TODO: Pick+Partialは要調査
-// type HogeProps = <ComponentProps
-// type PartialP2 = Partial<Pick
-// type Props = HogeProps & PartialP2
-
-
 type devProps = {
   stars: number,
   archived: boolean,
@@ -222,19 +194,11 @@ type devProps = {
   style?: React.CSSProperties;
 };
 
-import { getReducksCounter } from './Selectors'
 import { useDispatch, useSelector } from 'react-redux'
-import { reducksCountUp, reducksCountDown } from './Actions'
 // const dev = ({ dev, ...other }: devProps) => {
 // ↑これでも書ける
 const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
   const classes = useStyles();
-  // const selector = useSelector(state => state)
-  // const reducksCount = getReducksCounter(selector)
-  // const dispatch = useDispatch()
-
-  // const handleIncrement = () => dispatch(reducksCountUp(reducksCount));
-  // const handleDecrement = () => dispatch(reducksCountDown(reducksCount));
   return (
     <>
       <div className="grid">
@@ -265,11 +229,6 @@ const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
         <div>
         <HooksCounter />
         </div>
-        <div>
-          {/* reducksCount: { reducksCount }
-          <button onClick={() => handleIncrement()} />
-          <button onClick={() => handleDecrement()} /> */}
-        </div>
       </div>
 
 
@@ -297,7 +256,6 @@ const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
         >
           Delete
       </Button>
-        {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
         <Button
           variant="contained"
           color="primary"
@@ -357,8 +315,3 @@ const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
 }
 
 export default Dev
-
-// reduxよりも、React Hooksで各コンポネント内の責任でstateを保持したい
-
-// 理由：reduxの思想としては、stateを一元管理するため、全画面で値を取得でき、画面遷移にも強い点はある一方で
-// 大規模になるほど、使用するstateが増えるため、stateの把握、認識自体が大変になるし、テストも大変になる。
