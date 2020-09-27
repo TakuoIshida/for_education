@@ -33,8 +33,8 @@ import ClickEvent from '../common/ClickEvent'
 //  最初とっつきにくい
 // ・管理するファイルは増える
 
-// https://tech.playground.style/javascript/re-ducks/
 // re-ducks構成
+// https://tech.playground.style/javascript/re-ducks/
 // dev
 // ├ actions.js
 // ├ index.js
@@ -42,7 +42,11 @@ import ClickEvent from '../common/ClickEvent'
 // ├ reducers.js
 // ├ selectors.js
 // └ types.js
-//
+
+// typeScriptのducks構成
+// https://qiita.com/ragnar1904/items/72631e4476f94057c630
+// ↑この二つを混ぜる。
+
 // ducks構成
 // actions
 // ├ devAction.js
@@ -81,7 +85,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-// TODO: 　削除
 
 // 通常のアクセスの場合、getInitialPropsがサーバー側で実行されます。
 // 一方、next/linkを使用してクライアントサイドルーティングした場合にはクライアント側で実行されます。
@@ -98,7 +101,11 @@ import axios from 'axios'
 import fetch from 'isomorphic-unfetch'
 
 // APIのURLが増えると冗長なので、定数マスタでurlを作成しておく、
-// TODO: const baseURL = http://localhost:8000/v1
+// TODO: 関数の抽象化: fetch(url, option)でAPIが叩ける状態にする。
+// URLは定数マスタから呼び出す。
+
+// const baseURL = http://localhost:8000/v1
+// import { fetch } from './.....';
 
 export async function getStaticProps() {
   // gitHubからnext.jsのスター数をカウントするAPI
@@ -148,7 +155,6 @@ type initialState<T> = {
 }
 
 const reducer = (state = initialState, action: any) => {
-  // TODO switch分はできるだけ使わない。→クリーンアーキテクチャ
   switch(action.type) {
     case 'increment':
       return {BadDispatchCount: state.BadDispatchCount + 1};
@@ -193,6 +199,7 @@ const HooksCounter = () => {
   )
 }
 
+
 // TODO: Pick+Partialは要調査
 // type HogeProps = <ComponentProps
 // type PartialP2 = Partial<Pick
@@ -215,11 +222,19 @@ type devProps = {
   style?: React.CSSProperties;
 };
 
+import { getReducksCounter } from './Selectors'
+import { useDispatch, useSelector } from 'react-redux'
+import { reducksCountUp, reducksCountDown } from './Actions'
 // const dev = ({ dev, ...other }: devProps) => {
 // ↑これでも書ける
-const dev: FC<devProps> = ({ dev, stars, archived, description }) => {
+const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
   const classes = useStyles();
+  // const selector = useSelector(state => state)
+  // const reducksCount = getReducksCounter(selector)
+  // const dispatch = useDispatch()
 
+  // const handleIncrement = () => dispatch(reducksCountUp(reducksCount));
+  // const handleDecrement = () => dispatch(reducksCountDown(reducksCount));
   return (
     <>
       <div className="grid">
@@ -251,7 +266,9 @@ const dev: FC<devProps> = ({ dev, stars, archived, description }) => {
         <HooksCounter />
         </div>
         <div>
-        {/* <reducksCounter /> */}
+          {/* reducksCount: { reducksCount }
+          <button onClick={() => handleIncrement()} />
+          <button onClick={() => handleDecrement()} /> */}
         </div>
       </div>
 
@@ -339,7 +356,7 @@ const dev: FC<devProps> = ({ dev, stars, archived, description }) => {
   );
 }
 
-export default dev
+export default Dev
 
 // reduxよりも、React Hooksで各コンポネント内の責任でstateを保持したい
 

@@ -16,7 +16,7 @@ const TopPage = () => {
 
       <main>
       <Button variant="contained">
-          <Link href="/component/dev">
+          <Link href="/component/Dev">
             <a>Dev</a>
           </Link>
       </Button>
