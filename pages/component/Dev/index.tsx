@@ -155,7 +155,7 @@ const BadDispatchCounter = () =>  {
   }
   return (
     <>
-      BadDispatchCount: {state.BadDispatchCount}
+      DispatchCount: {state.BadDispatchCount}
       <button onClick={() => increseNumber()}>+</button>
       <button onClick={() => decreaseNumber()}>-</button>
     </>
