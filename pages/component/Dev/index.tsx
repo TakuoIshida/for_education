@@ -57,8 +57,6 @@ import ClickEvent from '../common/ClickEvent'
 // modules
 // ├ dev.js
 
-// TODO: scssを後で入れる
-// 再読み込みでCSSが崩れる
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -189,9 +187,6 @@ type devProps = {
     textbox: string;
   };
 
-  // 使うかわからないけど
-  // CSSプロパティ
-  style?: React.CSSProperties;
 };
 
 import { useDispatch, useSelector } from 'react-redux'
