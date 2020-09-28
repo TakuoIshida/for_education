@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 const index = () => {
-  const router = useRouter()
+    const router = useRouter()
   const { userId } = router.query
 
   return <p>ユーザーID: {userId}</p>
