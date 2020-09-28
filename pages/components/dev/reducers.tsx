@@ -49,10 +49,9 @@ export const ReducksCounterReducer = (state = counterInitialState, action: Reduc
     switch (action.type) {
       case ActionTypes.COUNT_DOWN:
         return { reducksCount: state.reducksCount - 1 };
-    case ActionTypes.COUNT_UP:
+      case ActionTypes.COUNT_UP:
         return { reducksCount: state.reducksCount + 1 };
       default:
-        const _: never = action;
         return state;
     }
   };

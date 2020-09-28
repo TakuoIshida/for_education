@@ -221,17 +221,20 @@ type devProps = {
   style?: React.CSSProperties;
 };
 
-import { getReducksCounter } from './selectors'
+// import ReducksCounter, {getReducksCounter} from './selectors'
 import { useDispatch, useSelector } from 'react-redux'
 import { reducksCountUp, reducksCountDown } from './actions'
+import { RootState } from '../../store/store'
+
 // const dev = ({ dev, ...other }: devProps) => {
 // ↑これでも書ける
+
 const Dev: FC<devProps> = ({ dev, stars, archived, description}) => {
   const classes = useStyles();
-  const selector = useSelector(state => state)
-  const reducksCount = getReducksCounter(selector)
+  // const selector = useSelector(state => state)
+  // const reducksCount = getReducksCounter(selector)
   const dispatch = useDispatch()
-
+  const reducksCount = useSelector((state: RootState) => state.reducksCount.reducksCount);
   const handleIncrement = () => dispatch(reducksCountUp(reducksCount));
   const handleDecrement = () => dispatch(reducksCountDown(reducksCount));
   return (

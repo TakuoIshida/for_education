@@ -4,10 +4,21 @@ import { RootState } from '../../store/store'
 import { createSelector } from "reselect";
 
 // useSelector Hook: storeの中から必要なstateだけを抽出する
-const currentCountSelector = (state: any) => state.reducksCount;
+const currentCountSelector = (state: RootState) => state.reducksCount;
 
 
-export const getReducksCounter = createSelector(
-    [currentCountSelector],
-    state => state.reducksCount
-);
+// const getReducksCounter = createSelector(
+//     [currentCountSelector],
+//     state => state.reducksCount
+// );
+// export default getReducksCounter
+
+// import { useSelector } from 'react-redux';
+
+// export const ReducksCounter: React.FC = () => {
+//   // storeからstateを取得する
+//   // rootReducer.counterにcountReducerを指定したので、以下のようにする。
+//   // currentCountはCount型のオブジェクト
+//   const currentCount = useSelector((state: RootState) => state.reducksCount);
+//   return <>{currentCount}</>
+// };

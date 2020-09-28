@@ -5,7 +5,7 @@ import { ActionTypes } from "../../store/actionTypes"
 
 // stateの型
 // キーは文字列、そのほかは入った型を定義する
-export type  reducksCounterState = {
+export type reducksCounterState = {
     reducksCount: number
 }
 
