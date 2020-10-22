@@ -1,9 +1,11 @@
 import React from 'react'
-import TopPage from './TopPage'
+import TopPage from './components'
 
 const index: React.FC = () => {
   return (
+    <div>
       <TopPage />
+    </div>
   )
 }
 
