@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { firebase } from "../../../src/firebase"
+import { firebase } from '../../src/firebase'
 import { useState } from 'react'
 
 const index = () => {
