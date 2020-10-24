@@ -102,7 +102,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reducksCountUp, reducksCountDown } from '../../components/dev/actions'
 import {sampleData} from '../../util/sample-data'
 
-const Dev: FC<sampleData> = ({ dev, stars, archived, description}) => {
+const Dev: FC<sampleData> = ({ dev, stars }) => {
   const selector = useSelector(state => state)
   const reducksCount = getReducksCounter(selector)
   const dispatch = useDispatch()
@@ -123,6 +123,11 @@ const Dev: FC<sampleData> = ({ dev, stars, archived, description}) => {
       </div>
       <Login />
       <Logout />
+      <Button variant="contained">
+        <Link href="/mypage" as ="/profile">
+            <a>mypage</a>
+        </Link>
+      </Button>
 
       <div className={styles.container}>
         <p>

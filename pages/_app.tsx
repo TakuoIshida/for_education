@@ -1,11 +1,10 @@
-// import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import store from '../store/dev'
 import styles from "./_index.module.scss"
 import Head from 'next/head'
-// function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
 
-const MyApp = ({ Component, pageProps }) => {
   return (
       <Provider store={store}>
         <Head>

@@ -14,16 +14,11 @@ const TopPage: NextPage = () => {
 
       <main>
       <Button variant="contained">
-          <Link href="/dev/dev" as ="/dev/dev">
+          <Link href="/dev" as ="/development">
             <a>Dev</a>
           </Link>
       </Button>
     
-      <Button variant="contained">
-        <Link href="/mypage" as ="/mypage">
-            <a>mypage</a>
-        </Link>
-      </Button>
       </main>
     </div>
   )
