@@ -1,6 +1,6 @@
 // 設定関係の値を管理する
 // TODO：バックエンドのAPIに変更する
-export const BASE_URL: string | undefined = process.env.BASE_URL
+export const BASE_URL: string | undefined = `${process.env.BASE_URL}/api`
     // ここにdomainの続きを書く？
     // BASE_URL : 'https://api.github.com/repos/zeit/next.js',
 
