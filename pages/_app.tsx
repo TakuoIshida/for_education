@@ -6,9 +6,19 @@ import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 
-Router.events.on('routeChangeStart', () => NProgress.inc())
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
+NProgress.configure({ showSpinner: false });
+
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+});
+
+Router.events.on("routeChangeComplete", () => {
+  NProgress.done();
+});
+
+Router.events.on("routeChangeError", () => {
+  NProgress.done();
+});
 function MyApp({ Component, pageProps }: AppProps) {
   return (
       <Provider store={store}>
