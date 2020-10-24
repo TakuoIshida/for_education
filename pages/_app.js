@@ -4,6 +4,7 @@ import store from '../store/dev'
 import styles from "./_index.module.scss"
 import Head from 'next/head'
 // function MyApp({ Component, pageProps }: AppProps) {
+
 const MyApp = ({ Component, pageProps }) => {
   return (
       <Provider store={store}>
