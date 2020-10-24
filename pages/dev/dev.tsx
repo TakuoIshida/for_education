@@ -214,17 +214,17 @@ const Dev: FC<sampleData> = ({ dev, stars, archived, description}) => {
           Save
       </Button>
       </div>
-      <Divider className="root" />
+      <Divider />
       <Table />
-      <Divider className="root" />
+      <Divider />
       <Card />
-      <Divider className="root" />
+      <Divider />
       <Alert />
-      <Divider className="root" />
+      <Divider />
       <ClickEvent />
-      <Divider className="root" />
+      <Divider />
       <Checkbox />
-      <Divider className="root" />
+      <Divider />
       <Loading />
     </div>
   );
