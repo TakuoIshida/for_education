@@ -20,7 +20,7 @@
 //     }
 // };
 
-import { ActionTypes } from "../../util/actionTypes";
+import { ActionTypes } from "../../constants/actionTypes";
 import { reducksCounterState, ReducksCounterActionTypes } from "./types";
 
 const counterInitialState: reducksCounterState  = {
