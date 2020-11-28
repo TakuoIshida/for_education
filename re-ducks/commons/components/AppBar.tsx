@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
 import Badge from '@material-ui/core/Badge'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -13,7 +12,6 @@ import Avatar from '@material-ui/core/Avatar'
 import SearchIcon from '@material-ui/icons/Search'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import MoreIcon from '@material-ui/icons/MoreVert'
-import PopUpMenu from './PopUpMenu'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SettingsIcon from '@material-ui/icons/Settings'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
@@ -136,17 +134,6 @@ const SearchAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-            >
-            <MenuIcon />
-          </IconButton> */}
-          <img height="60px" src="/ibis.svg" onClick={() => router.push('/')}/>
-          <PopUpMenu title="ジャンルで探す" ganreList={ganreList}/> 
-          <PopUpMenu title="雑誌で探す" ganreList={ganreList}/> 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

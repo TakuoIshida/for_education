@@ -4,7 +4,6 @@ import { NextPage } from 'next'
 import AbstCarousel from '../re-ducks/carousel/components/Carousel'
 import Devider from '../re-ducks/commons/components/Devider'
 import CategoryCardGroup from '../re-ducks/categoryCards/components/CategoryCardGroup'
-import Footer from '../re-ducks/commons/components/Footer'
 
 const TopPage: NextPage = () => {
 
@@ -35,7 +34,6 @@ const TopPage: NextPage = () => {
       <Devider />
       <CategoryCardGroup />
       <Devider />
-      <Footer />
     </div>
   )
 }
